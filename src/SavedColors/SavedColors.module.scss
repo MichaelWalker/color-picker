@@ -1,0 +1,26 @@
+﻿$margin: 10px;
+
+.swabList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: -$margin;
+  //justify-content: space-between;
+  
+  li {
+    margin: $margin;
+  }
+}
+
+.savedSwab {
+  width: calc(100%/2 - #{$margin * 2});
+  height: 130px;
+  
+  @media (min-width: 480px) {
+    width: calc(100%/3 - #{$margin * 2});
+  }
+  
+  @media (min-width: 600px) {
+    width: calc(100%/4 - #{$margin * 2});
+  }
+}

@@ -1,0 +1,11 @@
+﻿$margin: 12px;
+$maxWidth: 600px;
+
+.main {
+  margin: 0 12px;
+  
+  @media (min-width: $maxWidth + 2*$margin) {
+    margin: auto;
+    max-width: $maxWidth;
+  }
+}
