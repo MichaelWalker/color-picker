@@ -18,10 +18,15 @@ export const HslSliders = ({color, setHue, setSaturation, setBrightness}) => {
 };
 
 const Slider = ({label, value, maxValue, update, backgroundStyle}) => {
+    const moveSlider = event => {
+        const newValue = parseInt(event.target.value);
+        update(newValue);    
+    };
+    
     return (
         <label className={styles.slider}>
             <span className={styles.sliderLabel}>{label}</span>
-            <input className={styles.sliderBar} type="range" min="0" max={maxValue} value={value} onChange={event => update(event.target.value)}/>
+            <input className={styles.sliderBar} type="range" min="0" max={maxValue} value={value} onChange={moveSlider}/>
         </label>
     );
 };

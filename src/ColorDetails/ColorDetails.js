@@ -1,15 +1,15 @@
-﻿import React, {useState} from "react";
+import React, {useState} from "react";
 import * as styles from "./ColorDetails.module.scss";
 import {hexToHsl, hslToHex, hslToRgb, isValidHex} from "../colorConverter";
 
-export const ColorDetails = ({hslColor, updateColor}) => {
+export const ColorDetails = ({hslColor}) => {
     const hexColor = hslToHex(hslColor);
     const rgbColor = hslToRgb(hslColor);
     
     return (
         <section>
             <h2>Details</h2>
-            <HexInput hexColor={hexColor} updateColor={updateColor}/>
+            <div>Hex: {hexColor}</div>
             <div>RGB: {rgbColor.red}, {rgbColor.green}, {rgbColor.blue}</div>
             <div>HSV: {hslColor.hue}° {hslColor.saturation}% {hslColor.brightness}%</div>
         </section>
