@@ -1,4 +1,11 @@
-﻿.swab {
+﻿@import "../mixins";
+
+.swab {
+  position: relative;
   width: 100%;
   height: 200px;
+}
+
+.button {
+  @include button(50px);
 }

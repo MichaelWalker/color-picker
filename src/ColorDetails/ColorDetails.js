@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import * as styles from "./ColorDetails.module.scss";
-import {hexToHsl, hslToHex, hslToRgb, isValidHex} from "../colorConverter";
+import { hslToHex, hslToRgb } from "../colorConverter";
 
 export const ColorDetails = ({hslColor}) => {
     const hexColor = hslToHex(hslColor);
@@ -9,27 +9,18 @@ export const ColorDetails = ({hslColor}) => {
     return (
         <section>
             <h2>Details</h2>
-            <div>Hex: {hexColor}</div>
-            <div>RGB: {rgbColor.red}, {rgbColor.green}, {rgbColor.blue}</div>
-            <div>HSV: {hslColor.hue}° {hslColor.saturation}% {hslColor.brightness}%</div>
+            <div>
+                <span className={styles.colorSpace}>Hex:</span>
+                {hexColor}
+            </div>
+            <div>
+                <span className={styles.colorSpace}>RGB:</span>
+                {rgbColor.red}, {rgbColor.green}, {rgbColor.blue}
+            </div>
+            <div>
+                <span className={styles.colorSpace}>HSV:</span>
+                {hslColor.hue}° {hslColor.saturation}% {hslColor.brightness}%
+            </div>
         </section>
-    );
-};
-
-const HexInput = ({hexColor, updateColor}) => {
-    const [value, setValue] = useState(hexColor);
-    
-    const tryUpdate = event => {
-        const newValue = event.target.value;
-        setValue(newValue);
-        
-        if (isValidHex(newValue)) {
-            const newColor = hexToHsl(newValue);
-            updateColor(newColor);
-        }
-    };
-    
-    return (
-        <div>Hex: {hexColor}</div>
     );
 };

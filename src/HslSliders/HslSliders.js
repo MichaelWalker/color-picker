@@ -2,25 +2,19 @@
 import * as styles from "./HslSliders.module.scss"
 
 export const HslSliders = ({color, setHue, setSaturation, setBrightness}) => {
-    const hueBackground = {
-        background: `linear-gradient(tohsl(0, ${color.saturation}%, ${color.brightness}%), hsl(180, ${color.saturation}%, ${color.brightness}%), hsl(360, ${color.saturation}%, ${color.brightness}%))`, 
-    };
-    
-    console.log(hueBackground);
-    
     return (
         <section>
-            <Slider label="Hue" value={color.hue} maxValue={360} update={setHue} backgroundStyle={hueBackground}/>
-            <Slider label="Saturation" value={color.saturation} maxValue={100} update={setSaturation} backgroundStyle={hueBackground}/>
-            <Slider label="Brightness" value={color.brightness} maxValue={100} update={setBrightness} backgroundStyle={hueBackground}/>
+            <Slider label="Hue" value={color.hue} maxValue={360} setValue={setHue}/>
+            <Slider label="Saturation" value={color.saturation} maxValue={100} setValue={setSaturation}/>
+            <Slider label="Brightness" value={color.brightness} maxValue={100} setValue={setBrightness}/>
         </section>
     );
 };
 
-const Slider = ({label, value, maxValue, update, backgroundStyle}) => {
+const Slider = ({label, maxValue, value, setValue}) => {
     const moveSlider = event => {
         const newValue = parseInt(event.target.value);
-        update(newValue);    
+        setValue(newValue);    
     };
     
     return (

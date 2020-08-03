@@ -1,3 +1,6 @@
+$sliderHeight: 20px;
+$labelWidth: 150px;
+
 .slider {
   display: flex;
   align-items: center;
@@ -6,13 +9,11 @@
 
 .sliderLabel {
   display: inline-block;
-  width: 150px;
+  width: $labelWidth;
 }
 
 .sliderBar {
-  //appearance: none;
-  width: calc(100% - 150px);
-  height: 30px;
-  border-radius: 15px;
-  //outline: none;
+  width: calc(100% - #{$labelWidth});
+  height: $sliderHeight;
+  border-radius: $sliderHeight/2;
 }

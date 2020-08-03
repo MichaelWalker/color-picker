@@ -1,0 +1,27 @@
+﻿$buttonOffset: 10px;
+$buttonColor: white;
+$buttonHoverColor: deepskyblue;
+
+@mixin button($buttonSize) {
+  background: rgba(0,0,0,0.2);
+  color: $buttonColor;
+  border: 2px solid $buttonColor;
+  border-radius: 50%;
+  font-size: $buttonSize * 0.8;
+  line-height: 1;
+  height: $buttonSize;
+  width: $buttonSize;
+  position: absolute;
+  right: $buttonOffset;
+  top: $buttonOffset;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $buttonHoverColor;
+    border-color: $buttonHoverColor;
+    transform: scale(1.1);
+  }
+}

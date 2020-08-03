@@ -16,7 +16,7 @@ export const SavedColors = ({savedColors, removeColor}) => {
 const SavedSwab = ({color, removeColor: removeColor}) => {
     return (
         <li className={styles.savedSwab} style={{background: `hsl(${color.hue} ${color.saturation}% ${color.brightness}%`}}>
-            <button onClick={() => removeColor(color)}>Delete</button>
+            <button className={styles.deleteButton} onClick={() => removeColor(color)}>-</button>
         </li>
     );
 };
